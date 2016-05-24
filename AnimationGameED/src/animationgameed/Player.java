@@ -15,8 +15,7 @@ public class Player extends GameObject{
     private Image[] images = null;
     private int imageNum = 0;
     
-    public Player(Image[] images, int xLoc, int yLoc)
-    {
+    public Player(Image[] images, int xLoc, int yLoc){
         //add code here
         setSize(images[0].getWidth(null),images[0].getHeight(null));
     }
