@@ -1,4 +1,4 @@
-package animationlab;
+package animationgameed;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,9 +16,9 @@ import javax.swing.Timer;
 
 /**
  *
- * @author Justin hill
+ * @author Ethan Dickey
  */
-public class Runner extends JPanel implements KeyListener {
+public class GameRunner extends JPanel implements KeyListener {
 
     private static JFrame frame = new JFrame();
     private static Timer timer;
@@ -30,18 +30,15 @@ public class Runner extends JPanel implements KeyListener {
     /**
      * sets up and starts a game
      */
-    public Runner()
-    {
+    public GameRunner(){
         Image[] playerImages;
         Image obstacle = null;
-        try
-        {
+        try{
             //import the nessisary necessary graphics and add them to playerImages
             //import the graphic for the obstacle (you can use the rock provided)
             Thread.sleep(10);
         }
-        catch(Exception e)
-        {
+        catch(Exception e){
             
         }
         
@@ -64,44 +61,30 @@ public class Runner extends JPanel implements KeyListener {
         //add a player and obstacles to the game
         
     }
-    
-    ActionListener timerListener = new ActionListener() 
-   	{
-                   @Override
-   		public void actionPerformed(ActionEvent e)
-   		{
-                        moveObjects();
-                        repaint();
-   		}
-
-   	};
-    
-    public void paintComponent(Graphics g)
-    {
+    ActionListener timerListener = new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e){
+            moveObjects();
+            repaint();
+        }
+    };
+    public void paintComponent(Graphics g){
         g.setColor(new Color(0, 170, 0));
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
         
         //draw the player and all the obsicles by calling there draw methods
     }
-    
-    
     @Override
-    public void keyTyped(KeyEvent ke) {
-        //you may want to add code here
-    }
-
+    public void keyTyped(KeyEvent ke){}
     @Override
     public void keyPressed(KeyEvent ke) {
        //you may want to add code here
     }
-
     @Override
     public void keyReleased(KeyEvent ke) {
         //you may want to add code here
     }
-    
-    private void moveObjects()
-    {
+    private void moveObjects(){
         //move the player based on the arrow keys
         
         
@@ -111,7 +94,5 @@ public class Runner extends JPanel implements KeyListener {
         //check for a collision between the player and each obstacle by calling
         //the collision method in the player class. 
         //End the game if there is a collision
-        
     }
-    
 }

@@ -1,42 +1,26 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package animationlab;
+package animationgameed;
 
 import java.awt.Graphics;
 
 /**
  *
- * @author Justin Hill
+ * @author Ethan Dickey
  */
 public abstract class GameObject {
-    
     private int[] location = new int[2];
     private int[] size = new int[2];
     
+    public abstract void move(int amount);
     public abstract void Draw(Graphics g);
     
-    public void setLocation(int locX, int locY)
-    {
-        //add code here
+    public void setLocation(int locX, int locY){
+        location[0] = locX;
+        location[1] = locY;
     }
-    
-    public void setSize(int sizeX, int sizeY)
-    {
-        //add code here
+    public void setSize(int sizeX, int sizeY){
+        size[0]=sizeX;
+        size[1]=sizeY;
     }
-    
-    public int[] getSize()
-    {
-        //add code here
-    }
-    
-    public int[] getLocation()
-    {
-        //add code here
-    }
-    
-    public abstract void move(int amount);
-    
+    public int[] getSize(){return size;}
+    public int[] getLocation(){return location;}
 }
