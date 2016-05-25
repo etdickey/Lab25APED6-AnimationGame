@@ -9,7 +9,7 @@ import java.awt.Image;
 
 /**
  *
- * @author 100032528
+ * @author Ethan Dickey
  */
 public class Obstacle extends GameObject{
     private boolean dead = false;
@@ -21,15 +21,26 @@ public class Obstacle extends GameObject{
     }
     @Override
     public void Draw(Graphics g){
-        if(!dead){}
-            //add code here
+        int[] xy = getLocation();
+        if(!dead){
+            g.drawImage(image, xy[0], xy[1], null);
+        }
     }
     @Override
     public void move(int dir){
         int[] a = getLocation();
         int[] b = getSize();
-        if(a[0]+b[0]-dir>0){
-            
+        if(a[0]+b[0]-dir<0){
+            dead=true;
+        }
+        else
+            setLocation(getX()-dir,getY());
+        if(dead){
+            int rand = (int)(Math.random()*100+1);
+            if(rand%13==0){
+                dead=false;
+                setLocation(400,(int)(Math.random()*300 +10));
+            }
         }
         //if it is alive move the object to the left and declare it dead 
         //if it is off the left side of the screen.

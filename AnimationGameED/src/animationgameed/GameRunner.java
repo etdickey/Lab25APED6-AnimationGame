@@ -33,6 +33,7 @@ public class GameRunner extends JPanel implements KeyListener {
     public GameRunner(){
         Image[] playerImages;
         Image obstacle = null;
+        p = new Player(playerImages,50,200);
         try{
             //import the nessisary necessary graphics and add them to playerImages
             //import the graphic for the obstacle (you can use the rock provided)
@@ -52,7 +53,7 @@ public class GameRunner extends JPanel implements KeyListener {
         
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         frame.setLocation((screenSize.width/2)-200, (screenSize.height/2)-150);
-        
+        frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
         frame.repaint();
         timer = new Timer(timerSpeed, timerListener);
         timer.start();
