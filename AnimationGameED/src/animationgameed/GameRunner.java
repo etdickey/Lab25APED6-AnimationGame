@@ -99,7 +99,7 @@ public class GameRunner extends JPanel implements KeyListener {
     private void moveObjects(){
         //move the player based on the arrow keys
         if(keys[0]){
-            p.move();
+            p.move(-1);
         }
         
         //move the obsticles to the left
