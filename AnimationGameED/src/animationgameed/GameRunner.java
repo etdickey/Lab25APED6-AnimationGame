@@ -69,8 +69,10 @@ public class GameRunner extends JPanel implements KeyListener {
     public void paintComponent(Graphics g){
         g.setColor(new Color(0, 170, 0));
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
-        
-        //draw the player and all the obsicles by calling there draw methods
+        p.Draw(g);
+        obstacles.forEach((ab) -> {
+            ab.Draw(g);
+        });
     }
     @Override
     public void keyTyped(KeyEvent ke){}
@@ -97,7 +99,7 @@ public class GameRunner extends JPanel implements KeyListener {
     private void moveObjects(){
         //move the player based on the arrow keys
         if(keys[0]){
-            
+            p.move();
         }
         
         //move the obsticles to the left

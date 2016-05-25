@@ -29,7 +29,10 @@ public class Player extends GameObject{
         //return true if the player intersects the gameObject; else return false
         return false;
     }
-    public void move(int amount){
+    public void move(String dir){
+        switch(dir){
+            case "UP": 
+        }
         //move the charicter amount in the y direction 
         //if that dosn't take them off the edge of the screen
     }
