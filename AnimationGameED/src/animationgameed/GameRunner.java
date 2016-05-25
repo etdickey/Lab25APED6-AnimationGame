@@ -61,13 +61,11 @@ public class GameRunner extends JPanel implements KeyListener {
         //add a player and obstacles to the game
         
     }
-    ActionListener timerListener = new ActionListener(){
-        @Override
-        public void actionPerformed(ActionEvent e){
-            moveObjects();
-            repaint();
-        }
+    ActionListener timerListener = (ActionEvent e) -> {
+        moveObjects();
+        repaint();
     };
+    @Override
     public void paintComponent(Graphics g){
         g.setColor(new Color(0, 170, 0));
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
@@ -77,16 +75,30 @@ public class GameRunner extends JPanel implements KeyListener {
     @Override
     public void keyTyped(KeyEvent ke){}
     @Override
-    public void keyPressed(KeyEvent ke) {
-       //you may want to add code here
+    public void keyPressed(KeyEvent ke){
+        if (ke.getKeyCode() == KeyEvent.VK_UP){
+            keys[0] = true;
+        }
+        if (ke.getKeyCode() == KeyEvent.VK_DOWN){
+            keys[1] = true;
+        }
+        repaint();
     }
     @Override
-    public void keyReleased(KeyEvent ke) {
-        //you may want to add code here
+    public void keyReleased(KeyEvent ke){
+        if(ke.getKeyCode() == KeyEvent.VK_UP){
+            keys[0] = false;
+        }
+        if(ke.getKeyCode() == KeyEvent.VK_DOWN){
+            keys[1] = false;
+        }
+        repaint();
     }
     private void moveObjects(){
         //move the player based on the arrow keys
-        
+        if(keys[0]){
+            
+        }
         
         //move the obsticles to the left
         
