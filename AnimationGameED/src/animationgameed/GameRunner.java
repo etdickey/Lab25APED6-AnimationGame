@@ -22,13 +22,13 @@ import javax.swing.JPopupMenu;
  *
  * @author Ethan Dickey
  */
-public class GameRunner extends JPanel implements KeyListener {
+public class GameRunner extends JPanel implements KeyListener{
 
     private static JFrame frame = new JFrame();
     private static Timer timer;
     private final int timerSpeed = 20;
     public final boolean[] keys = new boolean[2];
-    Player p;
+    Player p = null;
     private ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
     
     /**
@@ -55,7 +55,7 @@ public class GameRunner extends JPanel implements KeyListener {
                 //desktop
                 url = new File("H:\\CompSci\\Programs\\StarfighterAPED6"
                     + "\\src\\Lab25APED6-AnimationGame\\AnimationGameED"
-                    + "\\src\\animationgameed\\"+ab+".png");
+                    + "\\src\\animationgameed\\Player"+ab+".png");
                 //laptop
 //                url = new File("C:\\Users\\Administrator\\Desktop\\School"
 //                        + "\\CompSci\\Repo\\src\\Lab25APED6-AnimationGame"
