@@ -30,6 +30,7 @@ public class GameRunner extends JPanel implements KeyListener{
     private final int timerSpeed = 20;
     public final boolean[] keys = new boolean[2];
     Player p = null;
+    private AudioAssets audio;
     private ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
     
     /**
@@ -71,7 +72,7 @@ public class GameRunner extends JPanel implements KeyListener{
         p = new Player(playerImages,50,200);
         frame.add(this);
         frame.addKeyListener(this);
-        
+        audio.play("music");
         frame.setVisible(true); 
         
         frame.setSize(800, 600);
@@ -138,6 +139,15 @@ public class GameRunner extends JPanel implements KeyListener{
         
         for(int ab=0;ab<obstacles.size();ab++){
             if(obstacles.get(ab).getShape().intersects((Rectangle2D)(p.getShape()))){
+                try{
+                    audio.play("Explosion");
+                    Thread.sleep(4000);
+                    audio.play("ylvis_the_fox");
+                    Thread.sleep(30000);
+                }
+                catch(Exception e){
+                    err.println(e + "playing musics.");
+                }
                 System.exit(0);
             }
         }

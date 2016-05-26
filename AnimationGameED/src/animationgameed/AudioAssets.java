@@ -21,11 +21,13 @@ public class AudioAssets {
     
     public static void play(final String name){
         try{
-            AudioInputStream audioIn=AudioSystem.getAudioInputStream(AudioAssets.class.getResource("Audio/"+name+".wav"));
+            
+            AudioInputStream audioIn=AudioSystem.getAudioInputStream(AudioAssets.class.getResource("Audio\\"+name+".wav"));
             Clip clip=AudioSystem.getClip();
             clip.open(audioIn);
-            if(name.equalsIgnoreCase("music")||name.equals("ylvis_the_fox"))
+            if(name.equalsIgnoreCase("music")||name.equals("ylvis_the_fox")){
                 (music=clip).loop(-1);
+            }
             else
                 clip.start();
         } catch(IOException | LineUnavailableException | UnsupportedAudioFileException e){
