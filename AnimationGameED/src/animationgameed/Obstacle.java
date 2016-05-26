@@ -16,8 +16,8 @@ public class Obstacle extends GameObject{
     private Image image = null;
     
     public Obstacle(Image i){
-        
         setSize(i.getWidth(null),i.getHeight(null));
+        setLocation((int)(Math.random()*400+400),(int)(Math.random()*600));
     }
     @Override
     public void Draw(Graphics g){
@@ -39,7 +39,7 @@ public class Obstacle extends GameObject{
             int rand = (int)(Math.random()*100+1);
             if(rand%13==0){
                 dead=false;
-                setLocation(400,(int)(Math.random()*300 +10));
+                setLocation(801,(int)(Math.random()*600 -10));
             }
         }
         //if it is alive move the object to the left and declare it dead 

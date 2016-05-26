@@ -15,7 +15,9 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
+import static java.lang.System.*;
+import javax.swing.JButton;
+import javax.swing.JPopupMenu;
 /**
  *
  * @author Ethan Dickey
@@ -31,25 +33,37 @@ public class GameRunner extends JPanel implements KeyListener {
     
     /**
      * sets up and starts a game
+     * Reads in the images and assigns them to variables.
      */
     public GameRunner(){
-        Image[] playerImages;
+        Image[] playerImages = new Image[3];
         Image obstacle = null;
         
         try{
+            ////rock
             //desktop
 //            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
 //                    + "src\\StarFighterReal\\ship.png");
             //laptop
             File url = new File("C:\\Users\\Administrator\\Desktop\\School"
                     + "\\CompSci\\Repo\\src\\Lab25APED6-AnimationGame"
-                    + "\\AnimationGameED\\src\\animationgameed");
-            playerImages[0] = ImageIO.read(url);
-            //import the graphic for the obstacle (you can use the rock provided)
+                    + "\\AnimationGameED\\src\\animationgameed\\rock.png");
+            obstacle = ImageIO.read(url);
+            ////player images
+            for(int ab=0;ab<3;ab++){
+                //desktop
+    //            url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
+    //                    + "src\\StarFighterReal\\ship.png");
+                //laptop
+                url = new File("C:\\Users\\Administrator\\Desktop\\School"
+                        + "\\CompSci\\Repo\\src\\Lab25APED6-AnimationGame"
+                        + "\\AnimationGameED\\src\\animationgameed\\Player"+ab+".png");
+                playerImages[ab] = ImageIO.read(url);
+            }
             Thread.sleep(10);
         }
         catch(Exception e){
-            
+            err.println(e+" trying to import.");
         }
         
         frame.add(this);
@@ -57,7 +71,7 @@ public class GameRunner extends JPanel implements KeyListener {
         
         frame.setVisible(true); 
         
-        frame.setSize(400, 300);
+        frame.setSize(800, 600);
         frame.setResizable(false);
         
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -68,8 +82,19 @@ public class GameRunner extends JPanel implements KeyListener {
         timer.start();
         
         p = new Player(playerImages,50,200);
-        //add a player and obstacles to the game
-        
+        for(int i=0;i<5;i++){
+            obstacles.add(new Obstacle(obstacle));
+        }
+//        final JPopupMenu menu = new JPopupMenu();
+//
+//        final JButton button = new JButton();
+//        button.setText("My Menu");
+//        button.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent ev) {
+//                menu.show(button, button.getBounds().x, button.getBounds().y
+//                   + button.getBounds().height);
+//            }
+//        });
     }
     ActionListener timerListener = (ActionEvent e) -> {
         moveObjects();
@@ -118,5 +143,8 @@ public class GameRunner extends JPanel implements KeyListener {
         //check for a collision between the player and each obstacle by calling
         //the collision method in the player class. 
         //End the game if there is a collision
+    }
+    private void endGame(){
+        
     }
 }
