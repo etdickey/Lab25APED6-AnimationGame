@@ -28,7 +28,7 @@ public class GameRunner extends JPanel implements KeyListener {
     private static Timer timer;
     private final int timerSpeed = 20;
     public final boolean[] keys = new boolean[2];
-    Player p = null;
+    Player p;
     private ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
     
     /**
