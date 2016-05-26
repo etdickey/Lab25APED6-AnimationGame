@@ -42,22 +42,24 @@ public class GameRunner extends JPanel implements KeyListener {
         try{
             ////rock
             //desktop
-//            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
-//                    + "src\\StarFighterReal\\ship.png");
+            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6"
+                    + "\\src\\Lab25APED6-AnimationGame\\AnimationGameED"
+                    + "\\src\\animationgameed\\rock.png");
             //laptop
-            File url = new File("C:\\Users\\Administrator\\Desktop\\School"
-                    + "\\CompSci\\Repo\\src\\Lab25APED6-AnimationGame"
-                    + "\\AnimationGameED\\src\\animationgameed\\rock.png");
+//            File url = new File("C:\\Users\\Administrator\\Desktop\\School"
+//                    + "\\CompSci\\Repo\\src\\Lab25APED6-AnimationGame"
+//                    + "\\AnimationGameED\\src\\animationgameed\\rock.png");
             obstacle = ImageIO.read(url);
             ////player images
             for(int ab=0;ab<3;ab++){
                 //desktop
-    //            url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
-    //                    + "src\\StarFighterReal\\ship.png");
+                url = new File("H:\\CompSci\\Programs\\StarfighterAPED6"
+                    + "\\src\\Lab25APED6-AnimationGame\\AnimationGameED"
+                    + "\\src\\animationgameed\\"+ab+".png");
                 //laptop
-                url = new File("C:\\Users\\Administrator\\Desktop\\School"
-                        + "\\CompSci\\Repo\\src\\Lab25APED6-AnimationGame"
-                        + "\\AnimationGameED\\src\\animationgameed\\Player"+ab+".png");
+//                url = new File("C:\\Users\\Administrator\\Desktop\\School"
+//                        + "\\CompSci\\Repo\\src\\Lab25APED6-AnimationGame"
+//                        + "\\AnimationGameED\\src\\animationgameed\\Player"+ab+".png");
                 playerImages[ab] = ImageIO.read(url);
             }
             Thread.sleep(10);
@@ -143,8 +145,5 @@ public class GameRunner extends JPanel implements KeyListener {
         //check for a collision between the player and each obstacle by calling
         //the collision method in the player class. 
         //End the game if there is a collision
-    }
-    private void endGame(){
-        
     }
 }
