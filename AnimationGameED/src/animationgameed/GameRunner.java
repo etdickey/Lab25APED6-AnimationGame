@@ -9,7 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -33,9 +35,16 @@ public class GameRunner extends JPanel implements KeyListener {
     public GameRunner(){
         Image[] playerImages;
         Image obstacle = null;
-        p = new Player(playerImages,50,200);
+        
         try{
-            //import the nessisary necessary graphics and add them to playerImages
+            //desktop
+//            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
+//                    + "src\\StarFighterReal\\ship.png");
+            //laptop
+            File url = new File("C:\\Users\\Administrator\\Desktop\\School"
+                    + "\\CompSci\\Repo\\src\\Lab25APED6-AnimationGame"
+                    + "\\AnimationGameED\\src\\animationgameed");
+            playerImages[0] = ImageIO.read(url);
             //import the graphic for the obstacle (you can use the rock provided)
             Thread.sleep(10);
         }
@@ -58,7 +67,7 @@ public class GameRunner extends JPanel implements KeyListener {
         timer = new Timer(timerSpeed, timerListener);
         timer.start();
         
-        
+        p = new Player(playerImages,50,200);
         //add a player and obstacles to the game
         
     }
