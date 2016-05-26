@@ -24,6 +24,8 @@ public abstract class GameObject {
         size[0]=sizeX;
         size[1]=sizeY;
     }
+    public int getWidth(){return size[0];}
+    public int getHeight(){return size[1];}
     public java.awt.Shape getShape(){return new java.awt.Rectangle(location[0],location[1],size[0],size[1]);}
     public int getX(){return location[0];}
     public int getY(){return location[1];}

@@ -43,24 +43,24 @@ public class GameRunner extends JPanel implements KeyListener{
         try{
             ////rock
             //desktop
-//            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6"
-//                    + "\\src\\Lab25APED6-AnimationGame\\AnimationGameED"
-//                    + "\\src\\animationgameed\\rock.png");
+            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6"
+                    + "\\src\\Lab25APED6-AnimationGame\\AnimationGameED"
+                    + "\\src\\animationgameed\\rock.png");
             //laptop
-            File url = new File("C:\\Users\\Administrator\\Desktop\\School"
-                    + "\\CompSci\\Repo\\src\\Lab25APED6-AnimationGame"
-                    + "\\AnimationGameED\\src\\animationgameed\\rock.png");
+//            File url = new File("C:\\Users\\Administrator\\Desktop\\School"
+//                    + "\\CompSci\\Repo\\src\\Lab25APED6-AnimationGame"
+//                    + "\\AnimationGameED\\src\\animationgameed\\rock.png");
             obstacle = ImageIO.read(url);
             ////player images
             for(int ab=0;ab<3;ab++){
                 //desktop
-//                url = new File("H:\\CompSci\\Programs\\StarfighterAPED6"
-//                    + "\\src\\Lab25APED6-AnimationGame\\AnimationGameED"
-//                    + "\\src\\animationgameed\\Player"+ab+".png");
+                url = new File("H:\\CompSci\\Programs\\StarfighterAPED6"
+                    + "\\src\\Lab25APED6-AnimationGame\\AnimationGameED"
+                    + "\\src\\animationgameed\\Player"+ab+".png");
                 //laptop
-                url = new File("C:\\Users\\Administrator\\Desktop\\School"
-                        + "\\CompSci\\Repo\\src\\Lab25APED6-AnimationGame"
-                        + "\\AnimationGameED\\src\\animationgameed\\Player"+ab+".png");
+//                url = new File("C:\\Users\\Administrator\\Desktop\\School"
+//                        + "\\CompSci\\Repo\\src\\Lab25APED6-AnimationGame"
+//                        + "\\AnimationGameED\\src\\animationgameed\\Player"+ab+".png");
                 playerImages[ab] = ImageIO.read(url);
             }
             Thread.sleep(10);
