@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
@@ -67,7 +68,7 @@ public class GameRunner extends JPanel implements KeyListener{
         catch(Exception e){
             err.println(e+" trying to import.");
         }
-        
+        p = new Player(playerImages,50,200);
         frame.add(this);
         frame.addKeyListener(this);
         
@@ -83,20 +84,10 @@ public class GameRunner extends JPanel implements KeyListener{
         timer = new Timer(timerSpeed, timerListener);
         timer.start();
         
-        p = new Player(playerImages,50,200);
+        
         for(int i=0;i<5;i++){
             obstacles.add(new Obstacle(obstacle));
         }
-//        final JPopupMenu menu = new JPopupMenu();
-//
-//        final JButton button = new JButton();
-//        button.setText("My Menu");
-//        button.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent ev) {
-//                menu.show(button, button.getBounds().x, button.getBounds().y
-//                   + button.getBounds().height);
-//            }
-//        });
     }
     ActionListener timerListener = (ActionEvent e) -> {
         moveObjects();
@@ -104,8 +95,9 @@ public class GameRunner extends JPanel implements KeyListener{
     };
     @Override
     public void paintComponent(Graphics g){
-        g.setColor(new Color(0, 170, 0));
+        g.setColor(new Color(255, 170, 5));
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        
         p.Draw(g);
         obstacles.forEach((ab) -> {
             ab.Draw(g);
@@ -136,14 +128,20 @@ public class GameRunner extends JPanel implements KeyListener{
     private void moveObjects(){
         //move the player based on the arrow keys
         if(keys[0]){
-            p.move(-1);
+            p.move(-10);
         }
+        else if(keys[1])
+            p.move(10);
+        obstacles.forEach((ab)->{
+            ab.move(20);
+        });
         
-        //move the obsticles to the left
+        obstacles.forEach((ab)->{
+            if(ab.getShape().intersects((Rectangle2D)(p.getShape()))){
+                
+            }
+        });
         
-        
-        //check for a collision between the player and each obstacle by calling
-        //the collision method in the player class. 
         //End the game if there is a collision
     }
 }

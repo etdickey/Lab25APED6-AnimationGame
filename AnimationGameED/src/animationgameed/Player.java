@@ -12,26 +12,31 @@ import java.awt.Image;
  * @author 100032528
  */
 public class Player extends GameObject{
-    private Image[] images = null;
+    private Image[] images = new Image[3];
     private int imageNum = 0;
-    
-    public Player(Image[] images, int xLoc, int yLoc){
-        //add code here
+    private int num=0;
+    public Player(Image[] image, int xLoc, int yLoc){
+        images = image;
         setSize(images[0].getWidth(null),images[0].getHeight(null));
+        setLocation(50,50);
     }
     public void Draw(Graphics g){
         //draw the player at a constant size
-        
-        //after that frame has been on the screen for a given number of draw 
-        //calls, change the player image
+        if(num<=20)
+            g.drawImage(images[0], getX(), getY(), null);
+        else if(num<=40)
+            g.drawImage(images[1], getX(), getY(), null);
+        else if(num<=60)
+            g.drawImage(images[2], getX(), getY(), null);
+        else
+            num = 0;
+        num++;
     }
     public boolean collision(GameObject g){
         //return true if the player intersects the gameObject; else return false
         return false;
     }
     public void move(int dir){
-        
-        //move the charicter amount in the y direction 
-        //if that dosn't take them off the edge of the screen
+        setY(getY()+dir);
     }
 }

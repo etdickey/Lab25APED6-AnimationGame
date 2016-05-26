@@ -18,12 +18,12 @@ public class Obstacle extends GameObject{
     public Obstacle(Image i){
         setSize(i.getWidth(null),i.getHeight(null));
         setLocation((int)(Math.random()*400+400),(int)(Math.random()*600));
+        image = i;
     }
     @Override
     public void Draw(Graphics g){
-        int[] xy = getLocation();
         if(!dead){
-            g.drawImage(image, xy[0], xy[1], null);
+            g.drawImage(image, getX(), getY(), null);
         }
     }
     @Override
@@ -48,7 +48,6 @@ public class Obstacle extends GameObject{
         //place it just off the right side of the screen at a random y position
     }
     public boolean isDead(){
-        //add code here
-        return false;
+        return dead;
     }
 }
